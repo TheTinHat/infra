@@ -12,8 +12,6 @@
 
   imports =
     [
-      ./disko-config.nix
-      ./hardware-configuration.nix
       ../../roles/common.nix
       ../../roles/desktop.nix
       ../../users/david.nix
