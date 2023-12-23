@@ -12,14 +12,16 @@
 
   imports =
     [
-      ../../roles/common.nix
-      ../../roles/desktop.nix
-      ../../users/david.nix
+      #../../roles/common.nix
+      #../../roles/desktop.nix
+      #../../users/david.nix
     ];
 
 
   boot.loader.grub.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
 
   networking.hostName = "testbox"; # Define your hostname.
   networking.networkmanager.enable = true;
