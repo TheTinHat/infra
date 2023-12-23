@@ -14,9 +14,9 @@
     [
       ./disko-config.nix
       ./hardware-configuration.nix
-      ../../common.nix
-      ../../users/david.nix
+      ../../roles/common.nix
       ../../roles/desktop.nix
+      ../../users/david.nix
     ];
 
 
