@@ -2,5 +2,5 @@
 
 
 ```
-nixos-rebuild --flake .#yourHostNameGoesHere switch
+nixos-rebuild --flake /path/do/flake/#yourHostNameGoesHere switch
 ```

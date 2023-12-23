@@ -23,16 +23,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".device = "/dev/disk/by-uuid/3538d39a-6a5b-481e-a85a-f25141900c7b";
-  boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".keyFile = "/crypto_keyfile.bin";
-
-  networking.hostName = "workstation"; # Define your hostname.
+  networking.hostName = "testbox"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.
@@ -55,9 +46,6 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  services.printing.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;

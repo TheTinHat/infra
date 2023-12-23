@@ -1,9 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, home-manager, ... }:
 {
-  imports =
-    [
-      <home-manager/nixos>
-    ];
 
   users.users.david = {
     isNormalUser = true;
