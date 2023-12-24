@@ -6,14 +6,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  system.userActivationScripts = {
-    setEtcNixosOwnership =
-      {
-        text = ''
-          ${pkgs.sudo}/bin/sudo }${pkgs.coreutils}/bin/chown -R david /etc/nixos
-        '';
-        deps = [ ];
-      };
+  system.activationScripts = {
+    stdio.text = ''
+      ${pkgs.coreutils}/bin/chown -R david /etc/nixos
+    '';
   };
 
   security.sudo.extraRules = [
