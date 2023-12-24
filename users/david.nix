@@ -9,7 +9,9 @@
   system.userActivationScripts = {
     setEtcNixosOwnership =
       {
-        text = "chown -R david /etc/nixos";
+        text = ''
+          ${pkgs.chown}/bin/chown -R david /etc/nixos"
+        '';
         deps = [ ];
       };
   };
