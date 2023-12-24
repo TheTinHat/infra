@@ -10,7 +10,7 @@
     setEtcNixosOwnership =
       {
         text = ''
-          ${pkgs.chown}/bin/chown -R david /etc/nixos"
+          ${pkgs.coreutils}/bin/chown -R david /etc/nixos"
         '';
         deps = [ ];
       };
