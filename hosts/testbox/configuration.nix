@@ -11,7 +11,11 @@
       ../../roles/virtualization.nix
     ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "no";
+    settings.AllowUsers = [ "david" ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.11";
