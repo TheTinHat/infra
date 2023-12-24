@@ -19,7 +19,7 @@
     vlc
     syncthing
     prusa-slicer
-    obsidian
+    #obsidian
     darktable
   ];
 
