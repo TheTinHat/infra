@@ -6,8 +6,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  environment.etc.nixos.user = "david";
-
   security.sudo.extraRules = [
     {
       users = [ "david" ];
@@ -24,6 +22,7 @@
     programs.bash = {
       enable = true;
       shellAliases = {
+        own = "sudo chown -R david";
         work = "source env/bin/activate";
         mkenv = "python3 -m venv env";
         alfred = "ssh alfred@alfred.wolf-atlas.ts.net";
