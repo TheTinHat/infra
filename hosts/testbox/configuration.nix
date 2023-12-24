@@ -1,14 +1,6 @@
 { pkgs, ... }:
 
 {
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  system.stateVersion = "23.11";
 
   imports =
     [
@@ -19,6 +11,8 @@
       #../../users/david.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.grub.enable = true;
