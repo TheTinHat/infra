@@ -7,7 +7,8 @@
       ./disko-config.nix
       ../../roles/common.nix
       #../../roles/desktop.nix
-      #../../users/david.nix
+      ../../users/david.nix
+      ../../roles/virtualization.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
