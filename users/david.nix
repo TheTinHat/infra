@@ -2,7 +2,6 @@
 {
 
   users.users.david = {
-    group = "david";
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
@@ -10,7 +9,7 @@
   system.userActivationScripts = {
     setEtcNixosOwnership =
       {
-        text = "chown -R david:david /etc/nixos";
+        text = "chown -R david /etc/nixos";
         deps = [ ];
       };
   };
