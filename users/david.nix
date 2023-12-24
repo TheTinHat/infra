@@ -6,11 +6,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  system.activationScripts = {
-    stdio.text = ''
-      ${pkgs.coreutils}/bin/chown -R david /etc/nixos
-    '';
-  };
+  environment.etc.nixos.user = "david";
 
   security.sudo.extraRules = [
     {
