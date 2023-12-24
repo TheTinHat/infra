@@ -2,9 +2,17 @@
 {
 
   users.users.david = {
+    group = "david";
     isNormalUser = true;
-    description = "David";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+  };
+
+  system.userActivationScripts = {
+    setEtcNixosOwnership =
+      {
+        text = "chown -R david:david /etc/nixos";
+        deps = [ ];
+      };
   };
 
   security.sudo.extraRules = [
