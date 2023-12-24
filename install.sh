@@ -19,7 +19,5 @@ git add .
 sudo nixos-install --flake ./hosts/#${host}
 
 sudo mkdir /mnt/etc/nixos/
-sudo mkdir /mnt/etc/nixos/${host}/
-sudo cp -r hosts/flake.nix /mnt/etc/nixos/
-sudo cp -r hosts/${host}/* /mnt/etc/nixos/${host}/
+sudo cp -r * /mnt/etc/nixos/
 

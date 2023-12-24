@@ -20,11 +20,6 @@
   ];
 
   home-manager.users.david = { ... }: {
-    home.file.".config" = {
-      source = ../../config;
-      recursive = true;
-    };
-
     programs.bash = {
       enable = true;
       shellAliases = {
