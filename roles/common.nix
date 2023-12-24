@@ -14,6 +14,7 @@
     gcc
     git
     htop
+    lazygit
     rsync
     tailscale
     unzip
