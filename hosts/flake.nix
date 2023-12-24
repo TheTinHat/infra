@@ -22,7 +22,6 @@
         system = "x86_64-linux";
         modules = [
           ./testbox/configuration.nix
-          ./testbox/hardware-configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
