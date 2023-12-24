@@ -7,7 +7,7 @@
       ./hardware-configuration.nix
       ./disko-config.nix
       ../../roles/common.nix
-      ../../roles/desktop.nix
+      #../../roles/desktop.nix
       #../../users/david.nix
     ];
 
