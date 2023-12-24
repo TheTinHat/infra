@@ -5,7 +5,7 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   programs.bash.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname)";
+    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade";
     nsync = "git --git-dir /etc/nixos/infra/.git pull";
   };
 
