@@ -16,9 +16,10 @@
       ./disko-config.nix
       ../../roles/common.nix
       ../../roles/desktop.nix
-      ../../users/david.nix
+      #../../users/david.nix
     ];
 
+  nixpkgs.config.allowUnfree = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
