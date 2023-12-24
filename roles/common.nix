@@ -5,7 +5,7 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   programs.bash.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/hosts/#$(hostname)";
+    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname)";
   };
 
   environment.systemPackages = with pkgs; [
