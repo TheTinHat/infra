@@ -15,6 +15,8 @@
       #../../roles/common.nix
       #../../roles/desktop.nix
       #../../users/david.nix
+
+      ./disko-config.nix
     ];
 
 

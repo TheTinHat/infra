@@ -23,7 +23,6 @@
         modules = [
           ./testbox/configuration.nix
           ./testbox/hardware-configuration.nix
-          ./testbox/disko-config.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
