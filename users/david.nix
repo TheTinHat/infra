@@ -1,4 +1,6 @@
 { home-manager, ... }: {
+  home.stateVersion = "23.11";
+
   home-manager.users.david = { ... }: {
     programs.bash = {
       enable = true;
@@ -23,7 +25,9 @@
       enableSshSupport = true;
     };
 
-    home.stateVersion = "23.11";
+    programs.neovim = {
+      enable = true;
+    };
   };
 
 }
