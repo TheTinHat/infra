@@ -1,7 +1,8 @@
 { home-manager, ... }: {
-  home.stateVersion = "23.11";
 
   home-manager.users.david = { ... }: {
+    home.stateVersion = "23.11";
+
     programs.bash = {
       enable = true;
       shellAliases = {
