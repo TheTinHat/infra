@@ -43,9 +43,9 @@
   system.userActivationScripts = {
     infraRepoSetup = {
       text = ''
-        ${pkgs.coreutils.chown}/bin/chown -R david:users /etc/nixos/"
+        ${pkgs.coreutils}/bin/chown -R david:users /etc/nixos/"
       '';
-      deps = [ ];
+      deps = [ pkgs ];
     };
   };
 
