@@ -4,6 +4,7 @@
 
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade";
+    ncd = "cd /etc/nixos/infra/";
     nsync = "sudo chown -R david:users /etc/nixos/ && git --git-dir /etc/nixos/infra/.git pull";
   };
 
@@ -39,9 +40,5 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
-
-  system.userActivationScripts.infraRepo = ''
-    sudo chown -R david:users /etc/nixos/
-  '';
 
 }
