@@ -41,7 +41,7 @@
   };
 
   system.userActivationScripts.infraRepo = ''
-    chown -R david:users /etc/nixos/
+    sudo chown -R david:users /etc/nixos/
   '';
 
 }
