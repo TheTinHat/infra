@@ -54,10 +54,10 @@
           }
         ];
       };
-      rusty = nixpkgs.lib.nixosSystem {
+      bernie = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./rusty/configuration.nix
+          ./bernie/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
