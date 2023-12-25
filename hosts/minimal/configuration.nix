@@ -7,6 +7,8 @@
       #../../users/david.nix
     ];
 
+  system.stateVersion = "23.11";
+
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "yes";
