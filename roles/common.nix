@@ -41,7 +41,7 @@
   };
 
   system.userActivationScripts.infraRepo = ''
-    ${pkgs.coreutils}/bin/chown -R david:users /etc/nixos/"
+    chown -R david:users /etc/nixos/"
   '';
 
 }
