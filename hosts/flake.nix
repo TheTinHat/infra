@@ -30,6 +30,18 @@
           }
         ];
       };
+      minimal = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./minimal/configuration.nix
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
       workstation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
