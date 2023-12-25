@@ -45,7 +45,7 @@
       text = ''
         ${pkgs.coreutils}/bin/chown -R david:users /etc/nixos/"
       '';
-      deps = [ pkgs ];
+      deps = [ "pkgs" ];
     };
   };
 
