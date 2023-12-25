@@ -4,7 +4,7 @@
 
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade";
-    nsync = "sudo chown -R root:wheel /etc/nixos/ && git --git-dir /etc/nixos/infra/.git pull";
+    nsync = "sudo chown -R david:users /etc/nixos/ && git --git-dir /etc/nixos/infra/.git pull";
   };
 
   environment.systemPackages = with pkgs; [
