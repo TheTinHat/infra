@@ -1,21 +1,4 @@
-{ pkgs, home-manager, ... }: {
-  users.users.david = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
-  };
-
-  security.sudo.extraRules = [
-    {
-      users = [ "david" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
+{ home-manager, ... }: {
   home-manager.users.david = { ... }: {
     programs.bash = {
       enable = true;
