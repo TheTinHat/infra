@@ -4,6 +4,7 @@
       ./hardware-configuration.nix
       ./disko-config.nix
       ../../roles/common.nix
+      ../../roles/allow_ssh.nix
       #../../users/david.nix
     ];
 

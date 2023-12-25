@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-{
-
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     flatpak
     gnome.gnome-tweaks
@@ -19,16 +17,10 @@
     vlc
     syncthing
     prusa-slicer
-    #obsidian
     darktable
+    #obsidian # disabled as it uses insecure version of electron
   ];
 
   programs.steam.enable = true;
   services.flatpak.enable = true;
-
-  services.syncthing = {
-    enable = true;
-    user = "david";
-    dataDir = "/home/david/";
-  };
 }

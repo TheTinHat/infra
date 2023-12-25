@@ -1,24 +1,16 @@
 { ... }:
 
 {
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  system.stateVersion = "23.11";
-
   imports =
     [
       ./disko-config.nix
       ./hardware-configuration.nix
-      ../../common.nix
       ../../users/david.nix
+      ../../roles/common.nix
       ../../roles/desktop.nix
     ];
 
+  system.stateVersion = "23.11";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -56,9 +48,13 @@
     xkbVariant = "";
   };
 
-  services.printing.enable = true;
+  # Nvidia Driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  # Printer
+  services.printing.enable = true;
+
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -69,4 +65,20 @@
     pulse.enable = true;
   };
 
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "david";
+    dataDir = "/home/david/";
+  };
+
+  # Virtualization
+  environment.systemPackages = with pkgs; [
+    OVMFFull
+  ];
+  programs.dconf.enable = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = enableDocker;
+  virtualisation.docker.autoPrune.enable = true;
+  virtualisation.docker.autoPrune.dates = "monthly";
 }

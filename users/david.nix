@@ -1,6 +1,4 @@
-{ pkgs, home-manager, ... }:
-{
-
+{ pkgs, home-manager, ... }: {
   users.users.david = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
@@ -22,7 +20,6 @@
     programs.bash = {
       enable = true;
       shellAliases = {
-        own = "sudo chown -R david";
         work = "source env/bin/activate";
         mkenv = "python3 -m venv env";
         alfred = "ssh alfred@alfred.wolf-atlas.ts.net";

@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-
-{
-  time.timeZone = "America/Vancouver";
-  i18n.defaultLocale = "en_CA.UTF-8";
+{ pkgs, ... }: {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade";
@@ -11,15 +9,17 @@
 
   environment.systemPackages = with pkgs; [
     curl
-    gcc
     git
     htop
     lazygit
+    ripgrep
     rsync
     tailscale
-    unzip
     wget
   ];
+
+  time.timeZone = "America/Vancouver";
+  i18n.defaultLocale = "en_CA.UTF-8";
 
   services.tailscale.enable = true;
 }
