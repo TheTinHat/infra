@@ -40,13 +40,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  system.userActivationScripts = {
-    infraRepoSetup = {
-      text = ''
-        ${pkgs.coreutils}/bin/chown -R david:users /etc/nixos/"
-      '';
-      deps = [ ];
-    };
-  };
+  system.userActivationScripts.infraRepo = ''
+    ${pkgs.coreutils}/bin/chown -R david:users /etc/nixos/"
+  '';
 
 }
