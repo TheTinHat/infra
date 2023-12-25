@@ -8,7 +8,6 @@
       ../../roles/allow_ssh.nix
     ];
 
-
   system.stateVersion = "23.11";
 
   boot.loader.grub.enable = true;
