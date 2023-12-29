@@ -3,7 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.bash.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade";
+    nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade-all";
     ncd = "cd /etc/nixos/infra/";
     nsync = "sudo chown -R david:users /etc/nixos/ && git --git-dir /etc/nixos/infra/.git pull";
   };
