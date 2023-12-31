@@ -29,7 +29,6 @@
   services.uptime-kuma = {
     enable = true;
     settings = {
-      PORT = "80";
       HOST = "monitoring.wolf-atlas.ts.net";
       DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
     };
