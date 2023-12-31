@@ -34,4 +34,8 @@
       DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
     };
   };
+
+  systemd.services.uptime-kuma.serviceConfig = {
+    ReadWritePaths = "/mnt/appdata/kuma/";
+  };
 }
