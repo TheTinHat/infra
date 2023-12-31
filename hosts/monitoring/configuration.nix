@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports =
     [
       ./hardware-configuration.nix
@@ -30,7 +30,7 @@
     settings = {
       PORT = "80";
       HOST = "monitoring.wolf-atlas.ts.net";
-      DATA_DIR = "/mnt/appdata/kuma/kuma";
+      DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma";
     };
   };
 }
