@@ -5,6 +5,7 @@
       ./disko-config.nix
       ../../roles/common.nix
       ../../roles/allow_ssh.nix
+      ../../roles/autoupgrade.nix
     ];
 
   system.stateVersion = "23.11";
@@ -30,7 +31,7 @@
     settings = {
       PORT = "80";
       HOST = "monitoring.wolf-atlas.ts.net";
-      DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma";
+      DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
     };
   };
 }
