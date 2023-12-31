@@ -19,6 +19,11 @@
     uptime-kuma
   ];
 
+  fileSystems."/mnt/appdata" = {
+    device = "192.168.1.200:/mnt/rust/appdata";
+    fsType = "nfs";
+  };
+
   services.uptime-kuma = {
     enable = true;
     settings = {
