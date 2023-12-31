@@ -30,10 +30,10 @@
           }
         ];
       };
-      minimal = nixpkgs.lib.nixosSystem {
+      monitoring = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./minimal/configuration.nix
+          ./monitoring/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
@@ -46,18 +46,6 @@
         system = "x86_64-linux";
         modules = [
           ./workstation/configuration.nix
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-        ];
-      };
-      bernie = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./bernie/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
