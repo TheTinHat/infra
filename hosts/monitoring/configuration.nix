@@ -17,6 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     uptime-kuma
+    nfs-utils
   ];
 
   fileSystems."/mnt/appdata" = {
