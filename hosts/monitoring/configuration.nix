@@ -14,6 +14,11 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
 
+  boot.initrd = {
+    supportedFilesystems = [ "nfs" ];
+    kernelModules = [ "nfs" ];
+  };
+
   networking.hostName = "monitoring"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
