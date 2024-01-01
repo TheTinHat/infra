@@ -19,6 +19,7 @@
     kernelModules = [ "nfs" ];
   };
 
+
   networking.hostName = "monitoring"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
@@ -29,6 +30,7 @@
   fileSystems."/mnt/appdata" = {
     device = "192.168.1.200:/mnt/rust/appdata";
     fsType = "nfs";
+    options = [ "_netdev" "noauto" "users" "user" "x-systemd.automount" ];
   };
 
   services.uptime-kuma = {
