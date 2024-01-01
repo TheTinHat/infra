@@ -6,6 +6,7 @@
       ../../roles/common.nix
       ../../roles/allow_ssh.nix
       ../../roles/autoupgrade.nix
+      ../../roles/mount_appdata.nix
     ];
 
   system.stateVersion = "23.11";
@@ -14,23 +15,11 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
 
-  boot.initrd = {
-    supportedFilesystems = [ "nfs" ];
-    kernelModules = [ "nfs" ];
-  };
-
   networking.hostName = "monitoring"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
     uptime-kuma
-    nfs-utils
   ];
-
-  fileSystems."/mnt/appdata" = {
-    device = "192.168.1.200:/mnt/rust/appdata";
-    fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" ];
-  };
 
   services.uptime-kuma = {
     enable = true;
