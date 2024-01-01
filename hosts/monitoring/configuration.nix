@@ -40,6 +40,7 @@
     };
   };
 
+  systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" ];
   systemd.services.uptime-kuma.serviceConfig = {
     ReadWritePaths = "/mnt/appdata/kuma/";
   };

@@ -19,5 +19,6 @@ git add .
 sudo nixos-install --flake ./hosts/#${host}
 
 sudo mkdir -p /mnt/etc/nixos/
-sudo cp -r ../. /mnt/etc/nixos/
+sudo git clone https://github.com/TheTinHat/infra.git /mnt/etc/nixos/infra
+sudo cp hosts/${host}/hardware-configuration.nix /mnt/etc/nixos/infra/hosts/${host}/
 
