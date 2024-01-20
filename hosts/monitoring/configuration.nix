@@ -17,6 +17,23 @@
 
   networking.hostName = "monitoring"; # Define your hostname.
 
+  networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 ];
+    }
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "lo" ];
+    externalInterface = "tailscale0";
+    forwardPorts = [
+      {
+        sourcePort = 3001;
+        proto = "tcp";
+        destination = "127.0.0.1:80";
+      }
+    ];
+  }; 
+
   environment.systemPackages = with pkgs; [
     uptime-kuma
   ];
