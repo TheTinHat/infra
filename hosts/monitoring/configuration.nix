@@ -20,7 +20,7 @@
   networking.firewall = {
       enable = true;
       allowedTCPPorts = [ 80 ];
-    }
+  };
   networking.nat = {
     enable = true;
     internalInterfaces = [ "lo" ];
