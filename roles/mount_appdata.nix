@@ -11,5 +11,4 @@
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" ];
   };
-
 }
