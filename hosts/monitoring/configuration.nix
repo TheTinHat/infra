@@ -2,7 +2,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../roles/admin.nix
+      ../../users/admin.nix
       ../../roles/common.nix
       ../../roles/autoupgrade.nix
       ../../roles/mount_appdata.nix

@@ -5,7 +5,7 @@
       ../../roles/common.nix
       ../../roles/autoupgrade.nix
       ../../roles/mount_appdata.nix
-      ../../rols/admin.nix
+      ../../users/admin.nix
     ];
 
   system.stateVersion = "23.11";

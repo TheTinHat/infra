@@ -4,6 +4,12 @@
   home = {
     username = "david";
     homeDirectory = "/home/david";
+    packages = with pkgs; [
+      fd
+      lazygit
+      nerdfonts
+      ripgrep
+    ];
   };
 
   programs.home-manager.enable = true;
@@ -35,13 +41,12 @@
   };
 
   programs.neovim = {
-    enable = false;
+    enable = true;
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
       LazyVim
-      neogit
       vim-nix
       vim-lsp
       vim-markdown

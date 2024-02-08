@@ -3,7 +3,7 @@
     [
       ./hardware-configuration.nix
       ../../roles/common.nix
-      ../../roles/admin.nix
+      ../../users/admin.nix
     ];
 
   system.stateVersion = "23.11";

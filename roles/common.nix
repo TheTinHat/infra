@@ -6,16 +6,15 @@
     nrs = "sudo nixos-rebuild switch --flake /etc/nixos/infra/hosts/#$(hostname) --upgrade-all";
     ncd = "cd /etc/nixos/infra/";
     nsync = "sudo chown -R david:users /etc/nixos/ && git --git-dir /etc/nixos/infra/.git pull";
-    myip = "curl ifconfig.me && echo -e ''";
   };
 
   environment.systemPackages = with pkgs; [
     curl
+    gcc
     git
     htop
-    lazygit
-    ripgrep
     rsync
+    tailscale
     wget
   ];
 

@@ -3,7 +3,19 @@
     ./david.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
+    # dev tools
+    awscli2
+    aws-vault
+    black
+    eslint_d
+    nodejs_18
+    gdal
+    pre-commit
+    terraform
+    terraform-providers.aws
   ];
 
   programs.bash.shellAliases = {
@@ -65,5 +77,7 @@
           alias fgrep='fgrep --color=auto'
           alias egrep='egrep --color=auto'
       fi
+
+      export AWS_VAULT_BACKEND=file
     '';
 }
