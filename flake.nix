@@ -17,7 +17,7 @@
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./testbox/configuration.nix
+          ./hosts/testbox/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -28,7 +28,7 @@
       monitoring = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./monitoring/configuration.nix
+          ./hosts/monitoring/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -39,7 +39,7 @@
       workstation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./workstation/configuration.nix
+          ./hosts/workstation/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -52,7 +52,7 @@
       "david" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         modules = [
-          ../users/david.nix
+          ./home-manager/david.nix
         ];
       };
     };
