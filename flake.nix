@@ -10,9 +10,12 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager, sops-nix }: {
     nixosConfigurations = {
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -23,6 +26,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
+          sops-nix.nixosModules.sops
         ];
       };
       monitoring = nixpkgs.lib.nixosSystem {
@@ -34,6 +38,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
+          sops-nix.nixosModules.sops
         ];
       };
       workstation = nixpkgs.lib.nixosSystem {
@@ -45,6 +50,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
+          sops-nix.nixosModules.sops
         ];
       };
     };
@@ -53,6 +59,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         modules = [
           ./home-manager/work.nix
+          sops-nix.homeManagerModules.sops
         ];
       };
     };

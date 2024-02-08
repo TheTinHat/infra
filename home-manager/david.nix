@@ -1,6 +1,5 @@
 { pkgs, ... }: {
-  home.stateVersion = "23.11";
-  
+
   home = {
     username = "david";
     homeDirectory = "/home/david";
@@ -10,6 +9,7 @@
       nerdfonts
       ripgrep
     ];
+    stateVersion = "23.11";
   };
 
   programs.home-manager.enable = true;
@@ -53,5 +53,19 @@
       editorconfig-vim
       nvim-treesitter.withAllGrammars      
     ];
+  };
+
+  sops = {
+    age.keyFile = "/home/david/.config/sops/age/key.txt";
+    # age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
+    defaultSopsFile = ../secrets/david.yaml;
+    secrets.test = {
+      # sopsFile = ./secrets.yml.enc; # optionally define per-secret files
+
+      # %r gets replaced with a runtime directory, use %% to specify a '%'
+      # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
+      # DARWIN_USER_TEMP_DIR) on darwin.
+      path = "%r/test.txt"; 
+    };
   };
 }
