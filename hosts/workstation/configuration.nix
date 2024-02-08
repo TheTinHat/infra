@@ -1,5 +1,4 @@
-{ ... }:
-
+{ pkgs, ... }:
 {
   imports =
     [
@@ -8,6 +7,7 @@
       ../../users/david.nix
       ../../roles/common.nix
       ../../roles/desktop.nix
+      ../../roles/sudo_nopasswd.nix
     ];
 
   system.stateVersion = "23.11";
@@ -72,13 +72,19 @@
     dataDir = "/home/david/";
   };
 
+
+  users.users.david = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+  };
+
   # Virtualization
   environment.systemPackages = with pkgs; [
     OVMFFull
   ];
   programs.dconf.enable = true;
   virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = enableDocker;
+  virtualisation.docker.enable = true;
   virtualisation.docker.autoPrune.enable = true;
   virtualisation.docker.autoPrune.dates = "monthly";
 }

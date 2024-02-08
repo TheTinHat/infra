@@ -7,6 +7,7 @@
       ../../roles/allow_ssh.nix
       ../../roles/autoupgrade.nix
       ../../roles/mount_appdata.nix
+      ../../roles/sudo_nopasswd.nix
     ];
 
   system.stateVersion = "23.11";

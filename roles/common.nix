@@ -15,30 +15,11 @@
     lazygit
     ripgrep
     rsync
-    tailscale
     wget
-  ];
-
-  time.timeZone = "America/Vancouver";
-  i18n.defaultLocale = "en_CA.UTF-8";
-
-  security.sudo.extraRules = [
-    {
-      users = [ "david" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
   ];
 
   services.tailscale.enable = true;
 
-  users.users.david = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
-  };
-
+  time.timeZone = "America/Vancouver";
+  i18n.defaultLocale = "en_CA.UTF-8";
 }
