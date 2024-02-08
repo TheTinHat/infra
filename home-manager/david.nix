@@ -13,9 +13,16 @@
     shellAliases = {
       work = "source env/bin/activate";
       mkenv = "python3 -m venv env";
+      reqs="pip install -r requirements.txt";
       myip = "curl ifconfig.me && echo -e ''";
+      vi="nvim";
+      vim="nvim";
     };
+    bashrcExtra = ''
+    '';
   };
+
+  programs.dircolors.enable = true;
 
   programs.git = {
     enable = true;
