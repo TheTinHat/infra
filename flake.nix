@@ -49,12 +49,6 @@
       };
     };
     homeConfigurations = {
-      "david" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        modules = [
-          ./home-manager/david.nix
-        ];
-      };
       "work" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         modules = [
