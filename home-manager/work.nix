@@ -3,6 +3,9 @@
     ./david.nix
   ];
 
+  home.packages = with pkgs; [
+  ];
+
   programs.bash.shellAliases = {
     dj="python manage.py";
     djt="python manage.py test --parallel auto --failfast --exclude-tag=slow --exclude-tag=liveserver --exclude-tag=aws";
