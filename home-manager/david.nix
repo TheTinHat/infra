@@ -18,8 +18,6 @@
       vi="nvim";
       vim="nvim";
     };
-    bashrcExtra = ''
-    '';
   };
 
   programs.dircolors.enable = true;
