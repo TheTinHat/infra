@@ -1,4 +1,4 @@
-{ home-manager, ... }: {
+{ pkgs, ... }: {
 
   home-manager.users.david = { ... }: {
     home.stateVersion = "23.11";
@@ -8,8 +8,6 @@
       shellAliases = {
         work = "source env/bin/activate";
         mkenv = "python3 -m venv env";
-        alfred = "ssh alfred@alfred.wolf-atlas.ts.net";
-        rust = "ssh admin@rust.wolf-atlas.ts.net";
         myip = "curl ifconfig.me && echo -e ''";
       };
     };
@@ -27,7 +25,37 @@
     };
 
     programs.neovim = {
-      enable = true;
+      enable = false;
+      viAlias = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        lazy-nvim
+        LazyVim
+        neogit
+        vim-nix
+        vim-lsp
+        vim-markdown
+        editorconfig-vim
+        nvim-treesitter.withAllGrammars      
+        (nvim-treesitter.withPlugins (
+          plugins: with plugins; [
+            tree-sitter-markdown
+            tree-sitter-nix
+          ]
+        ))
+      ];
     };
   };
+
+  security.sudo.extraRules = [
+    {
+      users = [ "david" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }

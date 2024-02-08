@@ -1,11 +1,9 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports =
     [
       ./hardware-configuration.nix
-      ./disko-config.nix
       ../../roles/common.nix
-      ../../users/david.nix
-      ../../roles/allow_ssh.nix
+      ../../users/admin.nix
     ];
 
   system.stateVersion = "23.11";

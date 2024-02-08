@@ -2,15 +2,12 @@
 {
   imports =
     [
-      ./disko-config.nix
-      ./hardware-configuration.nix
+     ./hardware-configuration.nix
       ../../users/david.nix
       ../../roles/common.nix
       ../../roles/desktop.nix
       ../../roles/sudo_nopasswd.nix
     ];
-
-  system.stateVersion = "23.11";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -23,6 +20,29 @@
   # Enable swap on luks
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".device = "/dev/disk/by-uuid/3538d39a-6a5b-481e-a85a-f25141900c7b";
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".keyFile = "/crypto_keyfile.bin";
+
+  environment.systemPackages = with pkgs; [
+    bitwarden
+    chromium
+    darktable
+    element-desktop
+    firefox
+    flatpak
+    gimp
+    gnome.gnome-tweaks
+    inkscape
+    libreoffice
+    obsidian 
+    OVMFFull
+    prusa-slicer
+    qgis
+    steam
+    syncthing
+    tor-browser-bundle-bin
+    virt-manager
+    vlc
+    wireshark
+  ];
 
   networking.hostName = "workstation"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -72,6 +92,7 @@
     dataDir = "/home/david/";
   };
 
+  system.stateVersion = "23.11";
 
   users.users.david = {
     isNormalUser = true;
@@ -79,9 +100,6 @@
   };
 
   # Virtualization
-  environment.systemPackages = with pkgs; [
-    OVMFFull
-  ];
   programs.dconf.enable = true;
   virtualisation.libvirtd.enable = true;
   virtualisation.docker.enable = true;
