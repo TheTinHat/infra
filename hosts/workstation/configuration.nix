@@ -3,7 +3,7 @@
   imports =
     [
      ./hardware-configuration.nix
-      ../../users/david.nix
+      ../../roles/david.nix
       ../../roles/common.nix
       ../../roles/desktop.nix
       ../../roles/sudo_nopasswd.nix
