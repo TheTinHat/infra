@@ -2,6 +2,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./disko-config.nix
       ../../users/admin.nix
       ../../roles/common.nix
       ../../roles/autoupgrade.nix

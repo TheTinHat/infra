@@ -13,14 +13,19 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix }: {
+  outputs = { self, nixpkgs, disko, home-manager, sops-nix }: {
     nixosConfigurations = {
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/testbox/configuration.nix
+          disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -33,6 +38,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/monitoring/configuration.nix
+          disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
