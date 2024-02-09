@@ -1,8 +1,6 @@
 { ... }: {
 
-  imports = [ 
-    ../home-manager/admin.nix
-  ];
+  home-manager.users.admin = import ../home-manager/admin.nix;
 
   services.openssh = {
     enable = true;

@@ -5,8 +5,6 @@
      ./hardware-configuration.nix
       ../../users/david.nix
       ../../roles/common.nix
-      ../../roles/desktop.nix
-      ../../roles/sudo_nopasswd.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -32,7 +30,7 @@
     gnome.gnome-tweaks
     inkscape
     libreoffice
-    obsidian 
+    # obsidian 
     OVMFFull
     prusa-slicer
     qgis

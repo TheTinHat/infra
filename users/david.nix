@@ -1,8 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, home-manager, ... }: {
 
-  imports = [ 
-    ../home-manager/david.nix
-  ];
+  home-manager.users.david = import ../home-manager/david.nix;
 
   security.sudo.extraRules = [
     {
@@ -14,5 +12,5 @@
         }
       ];
     }
-  ;
+    ];
 }
