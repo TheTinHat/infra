@@ -21,11 +21,11 @@
   outputs = { self, nixpkgs, disko, home-manager, sops-nix, nixinate }: {
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
-      installIso = nixos.lib.nixosSystem {
+      installIso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          "${nixos}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          ./users/admin.nix
+          home-manager.nixosModules.home-manager
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           ./mixins/common.nix
         ];
       };
