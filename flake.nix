@@ -47,6 +47,19 @@
           sops-nix.nixosModules.sops
         ];
       };
+      appserver = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/appserver/configuration.nix
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+          sops-nix.nixosModules.sops
+        ];
+      };
       workstation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
