@@ -16,4 +16,4 @@
     userName = "David Swanlund";
     userEmail = "10473778+TheTinHat@users.noreply.github.com";
   };
-};
+}
