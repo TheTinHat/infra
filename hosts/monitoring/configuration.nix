@@ -9,7 +9,13 @@
       ../../mixins/mount_appdata.nix
     ];
 
-  system.stateVersion = "23.11";
+  _module.args.nixinate = {
+    host = "monitoring";
+    sshUser = "david";
+    buildOn = "remote"; 
+    substituteOnTarget = true; 
+    hermetic = false;
+  };
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -29,6 +35,7 @@
     };
   };
 
+  system.stateVersion = "23.11";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
   systemd.services.uptime-kuma.serviceConfig = {
     ReadWritePaths = "/mnt/appdata/kuma/";

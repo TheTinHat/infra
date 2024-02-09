@@ -7,6 +7,14 @@
       ../../mixins/common.nix
     ];
 
+  _module.args.nixinate = {
+    host = "workstation";
+    sshUser = "david";
+    buildOn = "remote"; 
+    substituteOnTarget = true; 
+    hermetic = false;
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

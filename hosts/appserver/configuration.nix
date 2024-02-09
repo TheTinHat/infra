@@ -9,7 +9,13 @@
       ../../mixins/mount_appdata.nix
     ];
 
-  system.stateVersion = "23.11";
+  _module.args.nixinate = {
+    host = "appserver";
+    sshUser = "admin";
+    buildOn = "remote"; 
+    substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+    hermetic = false;
+  };
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -18,9 +24,8 @@
   networking.hostName = "appserver"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
-    nginx
   ];
-  services.nginx.enable = true;
 
+  system.stateVersion = "23.11";
 }
 

@@ -3,9 +3,8 @@
   description = "Flake for stable infrastructure";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-23.11";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixinate.url = "github:matthewcroughan/nixinate"; 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,23 +16,30 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixinate.url = "github:matthewcroughan/nixinate"; 
   };
 
   outputs = { self, nixpkgs, disko, home-manager, sops-nix, nixinate }: {
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
+      installIso = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          "${nixos}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          ./users/admin.nix
+          ./mixins/common.nix
+        ];
+      };
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/testbox/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          sops-nix.nixosModules.sops
         ];
       };
       monitoring = nixpkgs.lib.nixosSystem {
@@ -42,11 +48,11 @@
           ./hosts/monitoring/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          sops-nix.nixosModules.sops
         ];
       };
       appserver = nixpkgs.lib.nixosSystem {
@@ -59,13 +65,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            _module.args.nixinate = {
-              host = "192.168.1.156";
-              sshUser = "admin";
-              buildOn = "remote"; 
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
-              hermetic = false;
-            };
           }
         ];
       };
@@ -74,11 +73,11 @@
         modules = [
           ./hosts/workstation/configuration.nix
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          sops-nix.nixosModules.sops
         ];
       };
     };
