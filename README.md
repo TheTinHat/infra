@@ -8,12 +8,12 @@ nix build .#nixosConfigurations.installIso.config.system.build.isoImage
 
 It will be saved in the ./results/iso/ directory. 
 
-Boot the install image and run `infra` to automatically clone this repo. Then `cd infra` and run the install script: `sudo ./install.sh <host>`
+Boot the install image and run `infra` to automatically clone this repo. Then `cd infra` and run the install script: `sudo bash install.sh <host>`
 
 
 ## Updating Config
 ```
-./update.sh <host>
+bash update.sh <host>
 ```
 
 

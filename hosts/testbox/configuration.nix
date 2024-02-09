@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
       ./hardware-configuration.nix
+      ./disko-config.nix
       ../../mixins/common.nix
       ../../users/admin.nix
     ];
