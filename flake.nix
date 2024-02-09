@@ -17,9 +17,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixinate.url = "github:matthewcroughan/nixinate"; 
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, sops-nix }: {
+  outputs = { self, nixpkgs, disko, home-manager, sops-nix, nixinate }: {
+    apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
       testbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -53,11 +55,18 @@
           ./hosts/appserver/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            _module.args.nixinate = {
+              host = "192.168.1.156";
+              sshUser = "admin";
+              buildOn = "remote"; 
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
+            };
           }
-          sops-nix.nixosModules.sops
         ];
       };
       workstation = nixpkgs.lib.nixosSystem {

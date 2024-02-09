@@ -2,7 +2,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../roles/common.nix
+      ../../mixins/common.nix
       ../../users/admin.nix
     ];
 

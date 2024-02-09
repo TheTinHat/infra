@@ -4,9 +4,9 @@
       ./hardware-configuration.nix
       ./disko-config.nix
       ../../users/admin.nix
-      ../../roles/common.nix
-      #      ../../roles/autoupgrade.nix
-      ../../roles/mount_appdata.nix
+      ../../mixins/common.nix
+      #      ../../mixins/autoupgrade.nix
+      ../../mixins/mount_appdata.nix
     ];
 
   system.stateVersion = "23.11";

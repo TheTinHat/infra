@@ -9,6 +9,7 @@
     htop
     rsync
     tailscale
+    neovim
     wget
   ];
 

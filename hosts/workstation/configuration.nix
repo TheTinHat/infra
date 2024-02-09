@@ -4,7 +4,7 @@
     [
      ./hardware-configuration.nix
       ../../users/david.nix
-      ../../roles/common.nix
+      ../../mixins/common.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
