@@ -2,10 +2,11 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../roles/common.nix
-      ../../roles/autoupgrade.nix
-      ../../roles/mount_appdata.nix
+      ./disko-config.nix
       ../../users/admin.nix
+      ../../roles/common.nix
+#      ../../roles/autoupgrade.nix
+      ../../roles/mount_appdata.nix
     ];
 
   system.stateVersion = "23.11";
@@ -17,6 +18,7 @@
   networking.hostName = "appserver"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
+    nginx
   ];
 
 }
