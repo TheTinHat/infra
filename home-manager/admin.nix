@@ -1,9 +1,9 @@
 { ... }: {
-  home.stateVersion = "23.11";
 
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
+    stateVersion = "23.11";
   };
 
   programs.bash = {
