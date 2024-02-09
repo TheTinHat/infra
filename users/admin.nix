@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
 
   users.users.admin = {
     isNormalUser = true;
@@ -14,7 +14,7 @@
 
   services.openssh = {
     enable = true;
-    settings.PermitRootLogin = "no";
+    settings.PermitRootLogin = lib.mkForce "no";
     settings.AllowUsers = [ "admin" ];
     settings.PasswordAuthentication = false;
   };
