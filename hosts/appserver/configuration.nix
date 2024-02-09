@@ -5,7 +5,7 @@
       ./disko-config.nix
       ../../users/admin.nix
       ../../roles/common.nix
-#      ../../roles/autoupgrade.nix
+      #      ../../roles/autoupgrade.nix
       ../../roles/mount_appdata.nix
     ];
 
@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     nginx
   ];
+  services.nginx.enable = true;
 
 }
 
