@@ -21,3 +21,7 @@ sudo nixos-install --flake ./#${host}
 sudo mkdir -p /mnt/etc/nixos/
 sudo git clone https://github.com/TheTinHat/infra.git /mnt/etc/nixos/infra
 sudo cp hosts/${host}/hardware-configuration.nix /mnt/etc/nixos/infra/hosts/${host}/
+
+
+# nixos-rebuild switch --fast --flake .#default --target-host my-server --build-host my-server --option eval-cache false
+# see https://www.haskellforall.com/2023/01/announcing-nixos-rebuild-new-deployment.html 
