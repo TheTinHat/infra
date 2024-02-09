@@ -19,4 +19,15 @@
     settings.PasswordAuthentication = false;
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ "admin" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+    ];
 }
