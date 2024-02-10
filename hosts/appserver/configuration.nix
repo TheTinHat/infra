@@ -5,8 +5,9 @@
       ./disko-config.nix
       ../../users/admin.nix
       ../../mixins/common.nix
-      # ../../mixins/autoupgrade.nix
       ../../mixins/mount_appdata.nix
+      ../../mixins/docker.nix
+      # ../../mixins/autoupgrade.nix
     ];
 
   _module.args.nixinate = {
@@ -28,5 +29,9 @@
   ];
 
   system.stateVersion = "23.11";
+
+  users.users.admin= {
+    extraGroups = [ "docker" ];
+  };
 }
 
