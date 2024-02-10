@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
       ./hardware-configuration.nix
       ./disko-config.nix
@@ -17,6 +17,9 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+
+  environment.systemPackages = with pkgs; [
+  ];
 
   networking.hostName = "testbox";
 
