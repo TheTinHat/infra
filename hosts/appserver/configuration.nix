@@ -5,7 +5,7 @@
       ./disko-config.nix
       ../../users/admin.nix
       ../../mixins/common.nix
-      #      ../../mixins/autoupgrade.nix
+      # ../../mixins/autoupgrade.nix
       ../../mixins/mount_appdata.nix
     ];
 
@@ -24,6 +24,7 @@
   networking.hostName = "appserver"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
+    lazygit
   ];
 
   system.stateVersion = "23.11";
