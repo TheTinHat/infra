@@ -8,6 +8,7 @@
       lazygit
       nerdfonts
       ripgrep
+      sops
     ];
     stateVersion = "23.11";
   };
