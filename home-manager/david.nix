@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   home = {
     username = "david";
-    homeDirectory = "/home/david";
+    homeDirectory =
+      if pkgs.system == "aarch64-darwin"
+      then "/Users/david/"
+      else "/home/david";
     packages = with pkgs; [
       fd
       lazygit
@@ -20,10 +23,10 @@
     shellAliases = {
       work = "source env/bin/activate";
       mkenv = "python3 -m venv env";
-      reqs="pip install -r requirements.txt";
+      reqs = "pip install -r requirements.txt";
       myip = "curl ifconfig.me && echo -e ''";
-      vi="nvim";
-      vim="nvim";
+      vi = "nvim";
+      vim = "nvim";
     };
   };
 
@@ -35,11 +38,14 @@
     userEmail = "10473778+TheTinHat@users.noreply.github.com";
   };
 
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 43200;
-    enableSshSupport = true;
-  };
+  services.gpg-agent =
+    if pkgs.system == "aarch64-darwin" then
+      { } else {
+      enable = true;
+      defaultCacheTtl = 43200;
+      enableSshSupport = true;
+    };
+
 
   programs.neovim = {
     enable = true;
@@ -52,22 +58,22 @@
       vim-lsp
       vim-markdown
       editorconfig-vim
-      nvim-treesitter.withAllGrammars      
+      nvim-treesitter.withAllGrammars
     ];
   };
 
   #sops = {
-    # age.keyFile = "/home/david/.config/sops/age/key.txt";
-    # age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
-    # defaultSopsFile = ../secrets/david.yaml;
-    # secrets.test = {
-      # sopsFile = ./secrets.yml.enc; # optionally define per-secret files
+  # age.keyFile = "/home/david/.config/sops/age/key.txt";
+  # age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
+  # defaultSopsFile = ../secrets/david.yaml;
+  # secrets.test = {
+  # sopsFile = ./secrets.yml.enc; # optionally define per-secret files
 
-      # %r gets replaced with a runtime directory, use %% to specify a '%'
-      # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
-      # DARWIN_USER_TEMP_DIR) on darwin.
-      # path = "%r/test.txt"; 
-    # };
+  # %r gets replaced with a runtime directory, use %% to specify a '%'
+  # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
+  # DARWIN_USER_TEMP_DIR) on darwin.
+  # path = "%r/test.txt"; 
+  # };
   #
   #};
 }
