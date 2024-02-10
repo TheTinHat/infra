@@ -18,7 +18,7 @@ if [ -z "$ip" ]; then
 	exit 1
 fi
 
-ssh nixos@${ip} "git clone https://github.com/thetinhat/infra.git &&
+ssh nixos@${ip} -o StrictHostKeyChecking=no "git clone https://github.com/thetinhat/infra.git &&
   cd infra &&
   sudo nix run github:nix-community/disko -- --mode disko hosts/${host}/disko-config.nix &&
   nixos-generate-config --no-filesystems --root /mnt --dir hosts/${host}/ && 
@@ -29,4 +29,4 @@ ssh nixos@${ip} "git clone https://github.com/thetinhat/infra.git &&
   sudo cp hosts/${host}/hardware-configuration.nix /mnt/etc/nixos/infra/hosts/${host}/
   "
 
-rsync -avh nixos@${ip}:/mnt/etc/nixos/infra/hosts/${host}/hardware-configuration.nix ./hosts/${host}/
+rsync -avh -e "ssh -o StrictHostKeyChecking=no" nixos@${ip}:/mnt/etc/nixos/infra/hosts/${host}/hardware-configuration.nix ./hosts/${host}/
