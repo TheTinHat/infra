@@ -2,7 +2,7 @@
 {
   imports =
     [
-     ./hardware-configuration.nix
+      ./hardware-configuration.nix
       ../../users/david.nix
       ../../mixins/common.nix
       ../../mixins/docker.nix
@@ -11,8 +11,8 @@
   _module.args.nixinate = {
     host = "workstation";
     sshUser = "david";
-    buildOn = "remote"; 
-    substituteOnTarget = true; 
+    buildOn = "remote";
+    substituteOnTarget = true;
     hermetic = false;
   };
 
@@ -39,7 +39,7 @@
     gnome.gnome-tweaks
     inkscape
     libreoffice
-    # obsidian 
+    obsidian
     OVMFFull
     prusa-slicer
     qgis
@@ -49,6 +49,10 @@
     virt-manager
     vlc
     wireshark
+  ];
+
+  permittedInsecurePackages = [
+    "obsidian"
   ];
 
   networking.hostName = "workstation"; # Define your hostname.
