@@ -92,14 +92,14 @@
       "david@work" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         modules = [
-          ./home-manager/work.nix
+          ./home-manager/standalone/david.work.nix
           sops-nix.homeManagerModules.sops
         ];
       };
       "david@macos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         modules = [
-          ./home-manager/david.nix
+          ./home-manager/standalone/david.macos.nix
           sops-nix.homeManagerModules.sops
         ];
       };

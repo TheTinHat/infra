@@ -12,6 +12,7 @@
       nerdfonts
       ripgrep
       sops
+      tree
     ];
     stateVersion = "23.11";
   };
