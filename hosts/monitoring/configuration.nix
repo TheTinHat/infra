@@ -45,15 +45,11 @@
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      virtualHosts."monitoring.wolf-atlas.ts.net" = {
-        enableACME = true;
-        forceSSL = true;
+      virtualHosts."monitoring" = {
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001/";
           proxyWebsockets = true; # needed if you need to use WebSocket
           extraConfig =
-            # required when the target is also TLS server with multiple hosts
-            "proxy_ssl_server_name on;" +
             # required when the server wants to use HTTP Authentication
             "proxy_pass_header Authorization;"
           ;
@@ -62,9 +58,6 @@
       };
     };
   };
-
-  security.acme.defaults.email = "letsencrypt@swanlund.dev";
-  security.acme.defaults.dnsResolver = "100.100.100.100:53";
 
   system.stateVersion = "23.11";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
