@@ -13,7 +13,7 @@
   _module.args.nixinate = {
     host = "appserver";
     sshUser = "admin";
-    buildOn = "remote"; 
+    buildOn = "remote";
     substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
     hermetic = false;
   };
@@ -21,6 +21,8 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+
+  nix.optimise.automatic = true;
 
   networking.hostName = "appserver"; # Define your hostname.
 
@@ -30,7 +32,7 @@
 
   system.stateVersion = "23.11";
 
-  users.users.admin= {
+  users.users.admin = {
     extraGroups = [ "docker" ];
   };
 }
