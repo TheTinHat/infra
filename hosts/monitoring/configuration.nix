@@ -45,7 +45,7 @@
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      virtualHosts."monitoring.wolf-atlas.ts.net" = {
+      virtualHosts."monitoring" = {
         enableACME = true;
         forceSSL = true;
         locations."/" = {
@@ -64,6 +64,7 @@
   };
 
   security.acme.defaults.email = "letsencrypt@swanlund.dev";
+  security.acme.defaults.dnsResolver = "100.100.100.100:53";
 
   system.stateVersion = "23.11";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
