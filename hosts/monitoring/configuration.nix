@@ -45,7 +45,7 @@
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      virtualHosts."monitoring" = {
+      virtualHosts."monitoring.wolf-atlas.ts.net" = {
         enableACME = true;
         forceSSL = true;
         locations."/" = {
