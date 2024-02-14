@@ -39,12 +39,19 @@
       };
     };
 
-    caddy = {
+    nginx = {
       enable = true;
-      virtualHosts."monitoring".extraConfig = ''
-        reverse_proxy http://127.0.0.1:3001
-        tls no
-      '';
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
+
+      virtualHosts."monitoring" = {
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3001/";
+          proxyWebsockets = true;
+        };
+
+      };
     };
   };
 
