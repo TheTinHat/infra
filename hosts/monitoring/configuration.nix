@@ -12,8 +12,8 @@
   _module.args.nixinate = {
     host = "monitoring";
     sshUser = "david";
-    buildOn = "remote"; 
-    substituteOnTarget = true; 
+    buildOn = "remote";
+    substituteOnTarget = true;
     hermetic = false;
   };
 
@@ -27,13 +27,41 @@
     uptime-kuma
   ];
 
-  services.uptime-kuma = {
-    enable = true;
-    settings = {
-      HOST = "monitoring.wolf-atlas.ts.net";
-      DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
+  services = {
+    uptime-kuma = {
+      enable = true;
+      settings = {
+        HOST = "monitoring.wolf-atlas.ts.net";
+        DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
+      };
+    };
+
+    nginx = {
+      enable = true;
+      # Use recommended settings
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+
+      virtualHosts."monitoring" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3001/";
+          proxyWebsockets = true; # needed if you need to use WebSocket
+          extraConfig =
+            # required when the target is also TLS server with multiple hosts
+            "proxy_ssl_server_name on;" +
+            # required when the server wants to use HTTP Authentication
+            "proxy_pass_header Authorization;"
+          ;
+        };
+
+      };
     };
   };
+
 
   system.stateVersion = "23.11";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];

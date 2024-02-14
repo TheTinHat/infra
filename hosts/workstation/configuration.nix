@@ -51,7 +51,7 @@
     wireshark
   ];
 
-  permittedInsecurePackages = [
+  nixpkgs.config.nixpermittedInsecurePackages = [
     "obsidian"
   ];
 

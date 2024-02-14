@@ -3,6 +3,15 @@
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
+    packages = with pkgs; [
+      age
+      fd
+      lazygit
+      nerdfonts
+      ripgrep
+      sops
+      tree
+    ];
     stateVersion = "23.11";
   };
 
