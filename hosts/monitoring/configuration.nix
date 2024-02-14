@@ -42,7 +42,7 @@
     caddy = {
       enable = true;
       virtualHosts."monitoring".extraConfig = ''
-        reverse_proxy http://127.0.0.1:3001/
+        reverse_proxy http://127.0.0.1:3001
       '';
     };
   };
