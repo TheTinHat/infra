@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../mixins/common.nix
+    ../../mixins/gc_optimise.nix
     ../../users/admin.nix
   ];
 
@@ -17,8 +18,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-
-  nix.optimise.automatic = true;
 
   environment.systemPackages = with pkgs; [
   ];

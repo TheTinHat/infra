@@ -7,6 +7,7 @@
       ../../mixins/common.nix
       ../../mixins/mount_appdata.nix
       ../../mixins/docker.nix
+      ../../mixins/gc_optimise.nix
       # ../../mixins/autoupgrade.nix
     ];
 
@@ -21,8 +22,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-
-  nix.optimise.automatic = true;
 
   networking.hostName = "appserver"; # Define your hostname.
 

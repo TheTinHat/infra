@@ -6,6 +6,7 @@
       ../../users/david.nix
       ../../mixins/common.nix
       ../../mixins/docker.nix
+      ../../mixins/gc_optimise.nix
     ];
 
   _module.args.nixinate = {

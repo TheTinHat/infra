@@ -7,6 +7,7 @@
       ../../mixins/common.nix
       ../../mixins/autoupgrade.nix
       ../../mixins/mount_appdata.nix
+      ../../mixins/gc_optimise.nix
     ];
 
   _module.args.nixinate = {
