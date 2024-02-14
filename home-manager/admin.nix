@@ -7,10 +7,10 @@
       age
       fd
       lazygit
-      nerdfonts
       ripgrep
       sops
       tree
+      vim
     ];
     stateVersion = "23.11";
   };
