@@ -27,6 +27,7 @@
     uptime-kuma
   ];
 
+  security.acme.acceptTerms = true;
   services = {
     uptime-kuma = {
       enable = true;
