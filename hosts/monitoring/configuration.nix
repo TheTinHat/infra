@@ -27,7 +27,6 @@
     uptime-kuma
   ];
 
-  security.acme.acceptTerms = true;
   services = {
     uptime-kuma = {
       enable = true;
@@ -39,20 +38,14 @@
 
     nginx = {
       enable = true;
-      # Use recommended settings
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
       recommendedProxySettings = true;
-      recommendedTlsSettings = true;
 
       virtualHosts."monitoring" = {
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001/";
-          proxyWebsockets = true; # needed if you need to use WebSocket
-          extraConfig =
-            # required when the server wants to use HTTP Authentication
-            "proxy_pass_header Authorization;"
-          ;
+          proxyWebsockets = true;
         };
 
       };
