@@ -32,7 +32,7 @@
     uptime-kuma = {
       enable = true;
       settings = {
-        HOST = "monitoring.wolf-atlas.ts.net";
+        HOST = "127.0.0.1";
         DATA_DIR = lib.mkForce "/mnt/appdata/kuma/kuma/data";
       };
     };
