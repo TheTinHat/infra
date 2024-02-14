@@ -41,8 +41,9 @@
 
     caddy = {
       enable = true;
-      virtualHosts."monitoring.wolf-atlas.ts.net".extraConfig = ''
+      virtualHosts."monitoring".extraConfig = ''
         reverse_proxy http://127.0.0.1:3001
+        tls no
       '';
     };
   };
