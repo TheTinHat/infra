@@ -46,8 +46,8 @@
       recommendedTlsSettings = true;
 
       virtualHosts."monitoring" = {
-        #enableACME = true;
-        #forceSSL = true;
+        enableACME = true;
+        forceSSL = true;
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001/";
           proxyWebsockets = true; # needed if you need to use WebSocket
@@ -63,7 +63,7 @@
     };
   };
 
-  # security.acme.defaults.email = ADD A SECRET HERE ONCE SOPS IS DONE;
+  security.acme.defaults.email = "letsencrypt@swanlund.dev";
 
   system.stateVersion = "23.11";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
