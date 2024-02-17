@@ -1,12 +1,10 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ../david.nix
-    ../../mixins/gc_optimise.nix
+    ../../mixins/packages.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    age
-  ];
+  home.packages = config.packages.standard;
 }
