@@ -31,7 +31,7 @@ services:
       - SYS_ADMIN
       - NET_RAW
     environment:
-      - TS_STATE_DIR=/var/lib/tailscaled
+      - TS_STATE_DIR=/var/lib/tailscale/
     command: tailscaled
     restart: always
     healthcheck:
