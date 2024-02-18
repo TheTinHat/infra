@@ -10,7 +10,7 @@
   ];
 
   environment.shellAliases = {
-    infra = "git clone https://github.com/thetinhat/infra.git ~/infra";
+    nedit = "cd /etc/nixos/infra && sudo git pull && sudo -s";
     myip = "curl ifconfig.me && echo -e ''";
   };
 

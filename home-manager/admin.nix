@@ -16,7 +16,6 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      infra = "git clone https://github.com/thetinhat/infra.git ~/infra";
       myip = "curl ifconfig.me && echo -e ''";
     };
   };
