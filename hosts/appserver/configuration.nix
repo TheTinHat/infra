@@ -33,7 +33,7 @@
 
   virtualisation.oci-containers.containers = {
     portainer = {
-      image = "portainer:portainer-ce:latest";
+      image = "portainer/portainer-ce:latest";
       ports = [ "80:8000" "443:9443" ];
       autoStart = true;
       volumes = [
