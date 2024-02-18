@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
   imports = [
-    ../../mixins/packages.nix
+    ./packages.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
