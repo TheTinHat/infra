@@ -7,6 +7,7 @@
       ../../mixins/common.nix
       ../../mixins/docker.nix
       ../../mixins/gc_optimise.nix
+      ../../mixins/packages.nix
     ];
 
   _module.args.nixinate = {
@@ -29,27 +30,8 @@
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".device = "/dev/disk/by-uuid/3538d39a-6a5b-481e-a85a-f25141900c7b";
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".keyFile = "/crypto_keyfile.bin";
 
-  environment.systemPackages = with pkgs; [
-    bitwarden
-    chromium
-    darktable
-    element-desktop
-    firefox
-    flatpak
-    gimp
-    gnome.gnome-tweaks
-    inkscape
-    libreoffice
-    obsidian
-    OVMFFull
-    prusa-slicer
-    qgis
-    steam
-    syncthing
-    tor-browser-bundle-bin
-    virt-manager
-    vlc
-    wireshark
+  environment.systemPackages = with pkgs; config.packages.gui ++ [
+    # placeholder
   ];
 
   nixpkgs.config.nixpermittedInsecurePackages = [

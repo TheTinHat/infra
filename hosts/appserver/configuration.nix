@@ -25,10 +25,6 @@
 
   networking.hostName = "appserver"; # Define your hostname.
 
-  environment.systemPackages = with pkgs; [
-    lazygit
-  ];
-
   system.stateVersion = "23.11";
 
   users.users.admin = {

@@ -1,18 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
+  imports = [
+    ../mixins/packages.nix
+  ];
 
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
-    packages = with pkgs; [
-      age
-      fd
-      lazygit
-      ripgrep
-      sops
-      tree
-      vim
-    ];
     stateVersion = "23.11";
+    packages = with pkgs; with config; packages.core ++
+      [
+        # Package
+      ];
   };
 
   programs.bash = {

@@ -1,17 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
+  imports = [
+    ../../mixins/packages.nix
+  ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    age
-    curl
-    gcc
-    git
-    htop
-    rsync
-    tailscale
-    neovim
-    wget
+  environment.systemPackages = with pkgs; config.packages.core ++ [
+    # Package
   ];
 
   environment.shellAliases = {
