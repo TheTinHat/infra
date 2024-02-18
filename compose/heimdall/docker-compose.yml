@@ -9,7 +9,7 @@ services:
       - TZ=America/Vancouver
     volumes:
       - /mnt/appdata/heimdall/heimdall/config/:/config/
-    restart: on-failure
+    restart: always
     depends_on:
       - ts
     network_mode: 'service:ts'
@@ -31,7 +31,7 @@ services:
       - SYS_ADMIN
       - NET_RAW
     command: tailscaled
-    restart: on-failure
+    restart: always
     healthcheck:
       test: ["CMD", "tailscale", "ping", "alfred"]
       interval: 30s
