@@ -31,6 +31,7 @@
     extraGroups = [ "docker" ];
   };
 
+  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
   virtualisation.oci-containers.containers = {
     portainer = {
       image = "portainer/portainer-ce:latest";
