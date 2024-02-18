@@ -8,8 +8,8 @@
     enable = true;
     autoPrune.enable = true;
     autoPrune.dates = "monthly";
-    rootless.enable = true;
-    rootless.setSocketVariable = true;
+    # rootless.enable = true;
+    # rootless.setSocketVariable = true;
   };
 
   virtualisation.oci-containers = {

@@ -19,6 +19,12 @@
     hermetic = false;
   };
 
+  home-manager.users.admin.home.file."compose" = {
+    source = ../../compose;
+    target = "compose";
+    recursive = true;
+  };
+
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
