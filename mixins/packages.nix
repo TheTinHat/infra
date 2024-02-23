@@ -40,7 +40,6 @@ with pkgs;
         fd
         gcc
         jq
-        neovim
         nerdfonts
         ripgrep
         sops

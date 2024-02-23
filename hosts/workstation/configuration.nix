@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports =
     [
@@ -34,8 +34,8 @@
     # placeholder
   ];
 
-  nixpkgs.config.nixpermittedInsecurePackages = [
-    "obsidian"
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
   ];
 
   networking.hostName = "workstation"; # Define your hostname.
