@@ -3,22 +3,6 @@ with lib;
 with pkgs;
 {
   options.packages = {
-    placeholder = mkOption {
-      type = types.listOf (types.package);
-      default = with pkgs; [
-        # package
-      ];
-      description = "Description";
-    };
-
-    dev = mkOption {
-      type = types.listOf (types.package);
-      default = with pkgs; [
-        # package
-      ];
-      description = "Development Tools";
-    };
-
     core = mkOption {
       type = types.listOf (types.package);
       default = with pkgs; [
@@ -59,7 +43,6 @@ with pkgs;
         firefox
         flatpak
         gimp
-        gnome.gnome-tweaks
         inkscape
         libreoffice
         obsidian
@@ -73,6 +56,22 @@ with pkgs;
         vlc
       ];
       description = "Desktop GUI programs";
+    };
+
+    placeholder = mkOption {
+      type = types.listOf (types.package);
+      default = with pkgs; [
+        # package
+      ];
+      description = "Description";
+    };
+
+    dev = mkOption {
+      type = types.listOf (types.package);
+      default = with pkgs; [
+        # package
+      ];
+      description = "Development Tools";
     };
   };
 }
