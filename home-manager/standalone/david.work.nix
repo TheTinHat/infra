@@ -13,9 +13,13 @@
     eslint_d
     nodejs_18
     gdal
+    libffi
     pre-commit
+    python3
+    python311Packages.cffi
     terraform
     terraform-providers.aws
+    virtualenv
   ];
 
   programs.bash.shellAliases = {
