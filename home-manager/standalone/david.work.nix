@@ -12,7 +12,6 @@
     black
     eslint_d
     nodejs_18
-    gdal
     pre-commit
     python3
     python311Packages.cffi
