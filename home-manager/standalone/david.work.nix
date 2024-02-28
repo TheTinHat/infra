@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [
     ../david.nix
   ];
@@ -6,7 +6,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.git = {
-    userEmail = "david.swanlund@myheat.ca";
+    userEmail = lib.mkForce "david.swanlund@myheat.ca";
   };
 
   home.packages = with pkgs; [
