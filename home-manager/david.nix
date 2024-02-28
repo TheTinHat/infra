@@ -51,11 +51,7 @@
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
-      LazyVim
-      vim-nix
-      vim-lsp
-      vim-markdown
-      editorconfig-vim
+      nvim-treesitter
       nvim-treesitter.withAllGrammars
     ];
   };

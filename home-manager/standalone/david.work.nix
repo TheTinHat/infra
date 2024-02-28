@@ -5,6 +5,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.git = {
+    userEmail = "david.swanlund@myheat.ca";
+  };
+
   home.packages = with pkgs; [
     # dev tools
     awscli2
@@ -13,11 +17,8 @@
     eslint_d
     nodejs_18
     pre-commit
-    python3
-    python311Packages.cffi
     terraform
     terraform-providers.aws
-    virtualenv
   ];
 
   programs.bash.shellAliases = {
