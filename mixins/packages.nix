@@ -68,6 +68,7 @@ with pkgs;
         qgis
         steam
         syncthing
+        tidal-hifi
         tor-browser-bundle-bin
         virt-manager
         vlc
