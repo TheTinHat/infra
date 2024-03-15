@@ -1,9 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [
     ../david.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.git = {
+    userEmail = lib.mkForce "david.swanlund@myheat.ca";
+  };
 
   home.packages = with pkgs; [
     # dev tools
@@ -12,7 +16,6 @@
     black
     eslint_d
     nodejs_18
-    gdal
     pre-commit
     terraform
     terraform-providers.aws
