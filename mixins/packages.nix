@@ -48,6 +48,7 @@ with pkgs;
         libreoffice
         obsidian
         OVMFFull
+        pandoc
         prusa-slicer
         qgis
         steam
@@ -55,6 +56,7 @@ with pkgs;
         tor-browser-bundle-bin
         virt-manager
         vlc
+        zotero
       ];
       description = "Desktop GUI programs";
     };
