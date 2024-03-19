@@ -12,6 +12,7 @@ with pkgs;
         lazygit
         rsync
         tailscale
+        unzip
         vim
       ];
       description = "Core Utilities";
