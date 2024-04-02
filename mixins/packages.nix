@@ -73,6 +73,10 @@ with pkgs;
       type = types.listOf (types.package);
       default = with pkgs; [
         # package
+        nodejs
+        rustc
+        rustup
+        cargo
       ];
       description = "Development Tools";
     };
