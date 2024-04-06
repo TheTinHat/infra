@@ -25,6 +25,7 @@
       mkenv = "python3 -m venv env";
       reqs = "pip install -r requirements.txt";
       myip = "curl ifconfig.me && echo -e ''";
+      stress = "cat /dev/urandom | gzip > /dev/null";
     };
   };
 
