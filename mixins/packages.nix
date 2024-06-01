@@ -51,6 +51,7 @@ with pkgs;
         pandoc
         prusa-slicer
         qgis
+        signal-desktop
         steam
         syncthing
         tor-browser-bundle-bin
