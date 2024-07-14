@@ -6,7 +6,7 @@
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
     packages = with pkgs; with config; packages.core ++
       [
         # Package

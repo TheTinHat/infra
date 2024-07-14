@@ -9,11 +9,11 @@
       if pkgs.system == "aarch64-darwin"
       then "/Users/david/"
       else "/home/david";
-    packages = with pkgs; with config; packages.core ++ packages.extra ++ packages.dev ++
+    packages = with pkgs; with config; packages.core ++ packages.extra ++ 
       [
         # Package
       ];
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   programs.home-manager.enable = true;
