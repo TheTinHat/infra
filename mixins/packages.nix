@@ -54,7 +54,6 @@ with pkgs;
         signal-desktop
         steam
         syncthing
-        thunderbird
         tor-browser-bundle-bin
         virt-manager
         vlc
