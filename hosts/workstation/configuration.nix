@@ -38,13 +38,6 @@
     "electron-25.9.0"
   ];
 
-  hardware.opengl = { # this fixes the "glXChooseVisual failed" bug, context: https://github.com/NixOS/nixpkgs/issues/47932 
-    enable = true; 
-    driSupport = true; 
-    driSupport32Bit = true; 
-  };
-
-
   networking.hostName = "workstation"; # Define your hostname.
   networking.networkmanager.enable = true;
 
@@ -93,7 +86,7 @@
     dataDir = "/home/david/";
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
 
   users.users.david = {
     isNormalUser = true;

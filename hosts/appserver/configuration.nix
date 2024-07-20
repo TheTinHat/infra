@@ -25,7 +25,7 @@
 
   networking.hostName = "appserver"; # Define your hostname.
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
 
   users.users.admin = {
     extraGroups = [ "docker" ];
