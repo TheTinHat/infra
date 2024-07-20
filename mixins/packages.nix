@@ -76,7 +76,7 @@ with pkgs;
         # package
         nodejs
         rustc
-        rustup
+        #rustup
         cargo
       ];
       description = "Development Tools";
