@@ -33,6 +33,6 @@
     extraGroups = [ "docker" ];
   };
 
-  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
+  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" "mnt-david.mount" "mnt-media.mount" ];
 }
 
