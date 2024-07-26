@@ -32,18 +32,5 @@
   };
 
   systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
-  virtualisation.oci-containers.containers = {
-    portainer = {
-      image = "portainer/portainer-ce:latest";
-      ports = [ "80:8000" "443:9443" ];
-      autoStart = true;
-      volumes = [
-        "/var/run/docker.sock:/var/run/docker.sock"
-        "/mnt/appdata/portainer:/data"
-      ];
-      cmd = [
-      ];
-    };
-  };
 }
 
