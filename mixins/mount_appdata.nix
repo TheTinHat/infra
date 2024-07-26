@@ -7,7 +7,7 @@
   ];
 
   fileSystems."/mnt/appdata" = {
-    device = "rust.wolf-atlas.ts.net:/mnt/rust/appdata";
+    device = "192.168.1.200:/mnt/rust/appdata";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" ];
   };
