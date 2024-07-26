@@ -55,7 +55,7 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
   systemd.services.uptime-kuma.after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" ];
   systemd.services.uptime-kuma.serviceConfig = {
     ReadWritePaths = "/mnt/appdata/kuma/";
