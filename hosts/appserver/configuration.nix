@@ -24,7 +24,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking.hostName = "appserver"; # Define your hostname.
 
