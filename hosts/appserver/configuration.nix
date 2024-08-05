@@ -28,6 +28,8 @@
 
   networking.hostName = "appserver"; # Define your hostname.
 
+  services.resolved.enable = true
+
   system.stateVersion = "24.05";
 
   users.users.admin = {
