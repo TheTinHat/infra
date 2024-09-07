@@ -26,16 +26,19 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
-  networking.hostName = "appserver"; # Define your hostname.
+  services.resolved.enable = true;
 
-  services.resolved.enable = true
+  networking.hostName = "appserver"; # Define your hostname.
+  networking.nameservers = [ "100.100.100.100" "45.90.28.73" "45.90.30.73" ];
 
   system.stateVersion = "24.05";
+
+  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" "mnt-david.mount" "mnt-media.mount" ];
 
   users.users.admin = {
     extraGroups = [ "docker" ];
   };
-
-  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" "mnt-david.mount" "mnt-media.mount" ];
+ 
+  virtualisation.docker.liveRestore = false;
 }
 
