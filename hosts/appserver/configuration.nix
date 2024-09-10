@@ -26,6 +26,13 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/2 * * * * admin /home/admin/compose/servarr/update.sh"
+    ];
+  };
+
   services.resolved.enable = true;
 
   networking.hostName = "appserver"; # Define your hostname.
@@ -38,7 +45,7 @@
   users.users.admin = {
     extraGroups = [ "docker" ];
   };
- 
+
   virtualisation.docker.liveRestore = false;
 }
 
