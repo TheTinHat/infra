@@ -29,7 +29,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/2 * * * * admin /home/admin/compose/servarr/update.sh"
+      "*/5 * * * * admin /home/admin/compose/servarr/update.sh"
     ];
   };
 
