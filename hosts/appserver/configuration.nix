@@ -6,6 +6,7 @@
       ../../users/admin.nix
       ../../mixins/common.nix
       ../../mixins/mount_appdata.nix
+      ../../mixins/mount_fastdata.nix
       ../../mixins/mount_media.nix
       ../../mixins/mount_david.nix
       ../../mixins/docker.nix
