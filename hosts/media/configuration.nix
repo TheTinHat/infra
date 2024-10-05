@@ -26,6 +26,8 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
+  services.docker.rootless.enable = true;
+
   services.cron = {
     enable = true;
     systemCronJobs = [
@@ -40,7 +42,7 @@
 
   system.stateVersion = "24.05";
 
-  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" "mnt-david.mount" "mnt-media.mount" ];
+  systemd.services."docker".after = [ "network.target" "nfs-client.target" "mnt-appdata.mount" "mnt-media.mount" ];
 
   users.users.admin = {
     extraGroups = [ "docker" ];
