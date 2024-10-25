@@ -47,6 +47,9 @@
   networking.hostName = "workstation"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  # Add steam here rather than via package install so settings are correctly applied
+  programs.steam.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 

@@ -52,7 +52,6 @@ with pkgs;
         prusa-slicer
         qgis
         signal-desktop
-        steam
         syncthing
         tor-browser-bundle-bin
         virt-manager
