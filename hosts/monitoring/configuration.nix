@@ -18,7 +18,7 @@
     hermetic = false;
   };
 
-  nix.settings.trusted-users = [ "david" ];
+  nix.settings.trusted-users = [ "admin" ];
   nix.optimise.automatic = true;
 
   boot.loader.grub.enable = true;
