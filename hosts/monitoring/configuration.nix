@@ -12,12 +12,13 @@
 
   _module.args.nixinate = {
     host = "monitoring";
-    sshUser = "david";
-    buildOn = "remote";
+    sshUser = "admin";
+    buildOn = "local";
     substituteOnTarget = true;
     hermetic = false;
   };
 
+  nix.settings.trusted-users = [ "david" ];
   nix.optimise.automatic = true;
 
   boot.loader.grub.enable = true;
