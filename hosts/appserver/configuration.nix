@@ -17,7 +17,7 @@
   _module.args.nixinate = {
     host = "appserver";
     sshUser = "admin";
-    buildOn = "remote";
+    buildOn = "local";
     substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
     hermetic = false;
   };
