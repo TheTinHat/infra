@@ -8,6 +8,8 @@
       ../../mixins/docker.nix
       ../../mixins/gc_optimise.nix
       ../../mixins/packages.nix
+      ../../mixins/mount_media.nix
+      ../../mixins/mount_david.nix
     ];
 
   _module.args.nixinate = {
