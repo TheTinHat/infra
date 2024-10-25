@@ -5,7 +5,6 @@
       ./disko-config.nix
       ../../users/admin.nix
       ../../mixins/common.nix
-      ../../mixins/autoupgrade.nix
       ../../mixins/mount_appdata.nix
       ../../mixins/gc_optimise.nix
     ];
@@ -19,7 +18,6 @@
   };
 
   nix.settings.trusted-users = [ "admin" ];
-  nix.optimise.automatic = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
