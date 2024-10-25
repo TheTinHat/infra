@@ -34,6 +34,10 @@
     gnome.gnome-tweaks
   ];
 
+  hardware.opengl = {
+    enable = true;
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
@@ -44,27 +48,32 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable KDE Plasma6
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.defaultSession = "plasma";
+
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  #systemd.services."getty@tty1".enable = false;
+  #systemd.services."autovt@tty1".enable = false;
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "david";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "david";
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Nvidia Driver
   services.xserver.videoDrivers = [ "nvidia" ];
-
+  
   # Printer
   services.printing.enable = true;
 
@@ -86,7 +95,7 @@
     dataDir = "/home/david/";
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   users.users.david = {
     isNormalUser = true;
