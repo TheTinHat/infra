@@ -78,6 +78,7 @@
 
   # Nvidia Driver
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.forceFullCompositionPipeline = true;
   
   # Printer
   services.printing.enable = true;
