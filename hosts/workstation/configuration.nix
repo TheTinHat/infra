@@ -35,6 +35,7 @@
   environment.systemPackages = with pkgs; config.packages.gui ++ [
     # gnome.gnome-tweaks
     kcalc
+    discord
   ];
 
   hardware.opengl = {
