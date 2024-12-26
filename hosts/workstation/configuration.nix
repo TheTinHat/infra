@@ -33,7 +33,9 @@
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".keyFile = "/crypto_keyfile.bin";
 
   environment.systemPackages = with pkgs; config.packages.gui ++ [
+    # gnome.gnome-tweaks
     kcalc
+    discord
   ];
 
   hardware.opengl = {
