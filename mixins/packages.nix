@@ -46,6 +46,8 @@ with pkgs;
         gimp
         inkscape
         libreoffice
+        hunspell # needed for libreoffice spellcheck
+        hunspellDicts.en_CA-large
         obsidian
         OVMFFull
         pandoc

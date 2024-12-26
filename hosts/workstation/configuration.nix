@@ -33,12 +33,12 @@
   boot.initrd.luks.devices."luks-3538d39a-6a5b-481e-a85a-f25141900c7b".keyFile = "/crypto_keyfile.bin";
 
   environment.systemPackages = with pkgs; config.packages.gui ++ [
+    # gnome.gnome-tweaks
     kcalc
+    discord
   ];
 
-  hardware.opengl = {
-    enable = true;
-  };
+  hardware.graphics.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
@@ -79,12 +79,14 @@
   # Nvidia Driver
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.forceFullCompositionPipeline = true;
+  hardware.nvidia.open = true;
 
   # Printer
   services.printing.enable = true;
 
+
+
   # Sound
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -101,7 +103,9 @@
     dataDir = "/home/david/";
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   users.users.david = {
     isNormalUser = true;
