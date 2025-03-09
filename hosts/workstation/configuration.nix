@@ -38,9 +38,7 @@
     discord
   ];
 
-  hardware.opengl = {
-    enable = true;
-  };
+  hardware.graphics.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
@@ -81,6 +79,7 @@
   # Nvidia Driver
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.forceFullCompositionPipeline = true;
+  hardware.nvidia.open = true;
 
   # Printer
   services.printing.enable = true;
@@ -88,7 +87,6 @@
 
 
   # Sound
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -105,10 +103,10 @@
     dataDir = "/home/david/";
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 
   systemd.services.NetworkManager-wait-online.enable = false;
-  
+
   users.users.david = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
