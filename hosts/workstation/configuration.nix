@@ -85,6 +85,8 @@
   # Printer
   services.printing.enable = true;
 
+
+
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -105,6 +107,8 @@
 
   system.stateVersion = "24.05";
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+  
   users.users.david = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
