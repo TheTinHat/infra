@@ -46,6 +46,7 @@
 
   networking.hostName = "workstation"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   # Add steam here rather than via package install so settings are correctly applied
   programs.steam.enable = true;

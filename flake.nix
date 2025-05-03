@@ -36,10 +36,10 @@
           }
         ];
       };
-      testbox = nixpkgs.lib.nixosSystem {
+      apps = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/testbox/configuration.nix
+          ./hosts/apps/configuration.nix
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
