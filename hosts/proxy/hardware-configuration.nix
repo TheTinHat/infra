@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "ata_piix" "xhci_pci" "ahci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

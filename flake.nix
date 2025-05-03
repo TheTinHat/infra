@@ -87,6 +87,19 @@
           }
         ];
       };
+      proxy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/proxy/configuration.nix
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
     };
     homeConfigurations = {
       "david@work" = home-manager.lib.homeManagerConfiguration {
